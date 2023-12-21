@@ -32,7 +32,7 @@ def GetCode():
  #       }
  
 #        return jsonify(response), 200
-    requester_url=code
+    requester_url = data
     return render_template("GetCode.html", requester_url=requester_url)
 
 # colocar o site no ar
