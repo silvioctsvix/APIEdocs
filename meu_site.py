@@ -26,7 +26,7 @@ def usuarios(nome_usuario):
 @app.route("/GetCode")
 def GetCode():
     requester_url = request.url
-    data = request.json()
+    data = request.json
     if 'code' in data and 'state' in data:
         code = data['code']
         state = data['state']
