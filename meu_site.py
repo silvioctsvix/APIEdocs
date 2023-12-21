@@ -20,7 +20,6 @@ def usuarios(nome_usuario):
 @app.route("/GetCode")
 def GetCode():
     requester_url = request.url
-    #return f'A URL do solicitante é: {requester_url}'
     return render_template("GetCode.html", requester_url=requester_url)
 
 # colocar o site no ar
