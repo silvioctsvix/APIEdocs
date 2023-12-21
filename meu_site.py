@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, jsonify
+import requests
 
 app = Flask(__name__)
 # route -> hashtagtreinamentos.com/
@@ -22,34 +23,17 @@ def contatos():
 def usuarios(nome_usuario):
     return render_template("usuarios.html", nome_usuario=nome_usuario)
 
-# @app.route("/GetCode")
-# def GetCode():
-#     requester_url = request.url
-#     data = request.json()
-#     if 'code' in data and 'state' in data:
-#         code = data['code']
-#         state = data['state']
-# #        return jsonify(response), 200
-# # Inclua um script JavaScript na resposta para imprimir no console
-#     requester_url = data
-#     return render_template("GetCode.html", requester_url=requester_url)
-######
-@app.route('/Code', methods=['POST'])
-def get_code():
-    requisicao = Requisicao(request.form['code'], request.form['state'])
-    html_response = f"<html><body>Código: {requisicao.code}<br>Estado: {requisicao.state}</body></html>"
-    return html_response, 200, {'Content-Type': 'text/html'}
- 
-@app.route('/GetCode', methods=['POST'])
-def code():
-    data = request.get_json()
-    html_response = f"<html><body>Dados recebidos: {data}</body></html>"
-    return html_response, 200, {'Content-Type': 'text/html'}
- 
-@app.route('/Teste', methods=['GET'])
-def teste():
-    return "<html><body><p>Teste</p></body></html>", 200, {'Content-Type': 'text/html'}
-######
+@app.route("/GetCode")
+def GetCode():
+    requester_url = request.url
+    data = request.json()
+    if 'code' in data and 'state' in data:
+        code = data['code']
+        state = data['state']
+#        return jsonify(response), 200
+# Inclua um script JavaScript na resposta para imprimir no console
+    requester_url = jsonify(data)
+    return render_template("GetCode.html", requester_url=requester_url)
 
 # colocar o site no ar
 if __name__ == "__main__":
