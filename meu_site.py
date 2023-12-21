@@ -22,9 +22,8 @@ def GetCode():
     requester_url = request.url
     data = request.json
 #    if 'code' in data and 'state' in data:
-    if 'code' in data:
-        code = data['code']
-#        state = data['state']
+    code = data['code']
+    state = data['state']
  
         # Faça o que for necessário com os parâmetros (aqui, apenas devolvendo-os como JSON)
  #       response = {
