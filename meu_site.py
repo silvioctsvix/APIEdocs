@@ -21,9 +21,10 @@ def usuarios(nome_usuario):
 def GetCode():
     requester_url = request.url
     data = request.json
-    if 'code' in data and 'state' in data:
+#    if 'code' in data and 'state' in data:
+    if 'code' in data:
         code = data['code']
-        state = data['state']
+#        state = data['state']
  
         # Faça o que for necessário com os parâmetros (aqui, apenas devolvendo-os como JSON)
  #       response = {
@@ -32,7 +33,7 @@ def GetCode():
  #       }
  
 #        return jsonify(response), 200
-    requester_url = data
+    requester_url = code
     return render_template("GetCode.html", requester_url=requester_url)
 
 # colocar o site no ar
