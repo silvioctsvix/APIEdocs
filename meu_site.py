@@ -23,17 +23,22 @@ def contatos():
 def usuarios(nome_usuario):
     return render_template("usuarios.html", nome_usuario=nome_usuario)
 
+# @app.route("/GetCode")
+# def GetCode():
+#     requester_url = request.url
+#     data = request.json()
+#     if 'code' in data and 'state' in data:
+#         codigo = data['code']
+#         state = data['state']
+#     requester_url = jsonify(data)
+#     return render_template("GetCode.html", requester_url=requester_url)
+#########################
 @app.route("/GetCode")
 def GetCode():
-    requester_url = request.url
-    data = request.json
-    if 'code' in data and 'state' in data:
-        code = data['code']
-        state = data['state']
-#        return jsonify(response), 200
-# Inclua um script JavaScript na resposta para imprimir no console
-    requester_url = jsonify(data)
+    requester_url = request.args.get('code')
     return render_template("GetCode.html", requester_url=requester_url)
+
+#########################
 
 # colocar o site no ar
 if __name__ == "__main__":
