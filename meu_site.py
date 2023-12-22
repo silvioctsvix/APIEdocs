@@ -35,8 +35,7 @@ def usuarios(nome_usuario):
 #########################
 @app.route("/GetCode")
 def GetCode():
-    codigo = request.args.get('code')
-    requester_url = jsonify({'codigo_recuperado': codigo})
+    requester_url = request.url
     return render_template("GetCode.html", requester_url=requester_url)
 
 #########################
