@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request
 #import requests
 
 app = Flask(__name__)
@@ -33,7 +33,7 @@ def usuarios(nome_usuario):
 #     requester_url = jsonify(data)
 #     return render_template("GetCode.html", requester_url=requester_url)
 #########################
-@app.route("/GetCode")
+@app.route("/GetCode", methods=['POST'])
 def GetCode():
     requester_url = request.url
     return render_template("GetCode.html", requester_url=requester_url)
