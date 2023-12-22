@@ -33,10 +33,16 @@ def usuarios(nome_usuario):
 #     requester_url = jsonify(data)
 #     return render_template("GetCode.html", requester_url=requester_url)
 #########################
-@app.route("/GetCode", methods=['POST'])
-def GetCode():
-    requester_url = request.url
-    return render_template("GetCode.html", requester_url=requester_url)
+# @app.route("/GetCode", methods=['POST'])
+# def GetCode():
+#     requester_url = request.url
+#     return render_template("GetCode.html", requester_url=requester_url)
+
+@app.route('/GetCode', methods=['POST'])
+def get_code():
+    requisicao = Requisicao(request.form['code'], request.form['state'])
+    html_response = f"<html><body>Código: {requisicao.code}<br>Estado: {requisicao.state}</body></html>"
+    return html_response, 200, {'Content-Type': 'text/html'}
 
 #########################
 
