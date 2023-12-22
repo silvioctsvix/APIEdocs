@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, jsonify
-import requests
+#import requests
 
 app = Flask(__name__)
 # route -> hashtagtreinamentos.com/
